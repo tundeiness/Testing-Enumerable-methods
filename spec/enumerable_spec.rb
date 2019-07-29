@@ -14,7 +14,7 @@ describe Enumerable do
   end
 
   describe '#my_each_with_index' do
-    let(:response){ [] }
+    let(:response) { [] }
     it 'iterates over an array if a block is given' do
       arr.my_each_with_index { |_item, idx| response << idx }
       expect(response).to eq([0, 1, 2, 3, 4])
@@ -23,8 +23,8 @@ describe Enumerable do
 
   describe '#my_count' do
     it 'returns the number of element when a block is provided' do
-      response = arr.my_count{|elem| elem > 4}
-      res = arr.my_count{|elem| elem > 1}
+      response = arr.my_count { |elem| elem > 4 }
+      res = arr.my_count { |elem| elem > 1 }
       expect(response).to eq(1)
       expect(res).to eq(4)
     end
@@ -36,11 +36,20 @@ describe Enumerable do
 
   describe '#my_select' do
     it 'iterates an array to produce elements for which the given block is true' do
-      response = arr.my_select { |elem| elem% 2 != 0 }
+      response = arr.my_select(&:odd?)
       expect(response).to eq([1, 3, 5])
     end
   end
 
+  describe '#my_all?' do
+    it 'returns false when one of the elements does not meet the block condition' do
+      ans = arr.my_all? { |elem| elem != 2 }
+      expect(ans).to be(false)
+    end
 
-
+    it 'becomes truthy if all elements meet the block condition' do
+      ans = arr.my_all? { |elem| elem < 6 }
+      expect(ans).to be(true)
+    end
+  end
 end
