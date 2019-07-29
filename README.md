@@ -3,7 +3,7 @@
 [Using RSpec to test previously implemented Ruby enumerable methods](https://github.com/tundeiness/Enumerable-methods-in-Ruby)
 
 
-This repository is about using RSpec to test [custom enumerable methods](https://github.com/tundeiness/Enumerable-methods-in-Ruby)built from
+This repository is about using RSpec to test [custom enumerable methods](https://github.com/tundeiness/Enumerable-methods-in-Ruby) built from
 scratch by the author. Methods tested are the:
 * #each(#my_each),
 * #each_with_index(#each_with_index),
