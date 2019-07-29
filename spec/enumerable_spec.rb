@@ -52,4 +52,18 @@ describe Enumerable do
       expect(ans).to be(true)
     end
   end
+
+  describe '#my_any?' do
+    it 'returns true if the block ever returns a value different from false or nil' do
+      ans = arr.my_any? { |elem| elem == 5 }
+      expect(ans).to be(true)
+    end
+
+    it 'returns false if none of the elements meet the block condition' do
+      ans = arr.my_any? {|elem| elem == 0}
+      expect(ans).to be(false)
+    end
+  end
+
+
 end
