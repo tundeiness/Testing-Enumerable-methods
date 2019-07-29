@@ -65,5 +65,11 @@ describe Enumerable do
     end
   end
 
+  describe '#my_none?' do
+    it 'returns true if block condition are not fufilled by the elements' do
+      expect(%w{ant bear cat}.my_none? { |word| word.length == 5 }).to be(true)
+    end
+  end
+
 
 end
