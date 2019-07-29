@@ -103,7 +103,7 @@ def multiply_els(args)
   end
 end
 
-arr = [4, 9, 2, 9, 56, 4, 0]
+# arr = [4, 9, 2, 9, 56, 4, 0]
 
 puts multiply_els([2, 4, 5])
 # arr = ['girl','boy','girl','girl']

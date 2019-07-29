@@ -60,23 +60,28 @@ describe Enumerable do
     end
 
     it 'returns false if none of the elements meet the block condition' do
-      ans = arr.my_any? {|elem| elem == 0}
+      ans = arr.my_any? { |elem| elem == 0 }
       expect(ans).to be(false)
     end
   end
 
   describe '#my_none?' do
     it 'returns true if block condition are not fufilled by the elements' do
-      expect(%w{ant bear cat}.my_none? { |word| word.length == 5 }).to be(true)
+      expect(%w[ant bear cat].my_none? { |word| word.length == 5 }).to be(true)
     end
   end
 
   describe '#my_map' do
     it 'returns a new array modified by the block' do
-      ans = arr.my_map { |elem| elem ** 2 }
+      ans = arr.my_map { |elem| elem**2 }
       expect(ans).to eq([1, 4, 9, 16, 25])
     end
   end
 
-
+  describe '#my_inject' do
+    it 'iterates through a collection one element per time to build a new object' do
+      ans = arr.my_inject { |sum, num| sum + num }
+      expect(ans).to eq(15)
+    end
+  end
 end
