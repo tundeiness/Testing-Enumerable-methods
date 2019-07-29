@@ -71,5 +71,12 @@ describe Enumerable do
     end
   end
 
+  describe '#my_map' do
+    it 'returns a new array modified by the block' do
+      ans = arr.my_map { |elem| elem ** 2 }
+      expect(ans).to eq([1, 4, 9, 16, 25])
+    end
+  end
+
 
 end
