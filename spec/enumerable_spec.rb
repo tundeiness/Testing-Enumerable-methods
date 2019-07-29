@@ -3,7 +3,7 @@
 require_relative '../lib/enumerable.rb'
 
 describe Enumerable do
-  let(:arr){ [1, 2, 3, 4, 5] }
+  let(:arr) { [1, 2, 3, 4, 5] }
 
   describe '#my_each' do
     let(:response) { [] }
@@ -29,8 +29,18 @@ describe Enumerable do
       expect(res).to eq(4)
     end
 
-    it 'returns the number ofelements in ana array when no block is provided' do
+    it 'returns the number of elements in an array when no block is provided' do
       expect(arr.my_count).to eq(5)
     end
   end
+
+  describe '#my_select' do
+    it 'iterates an array to produce elements for which the given block is true' do
+      response = arr.my_select { |elem| elem% 2 != 0 }
+      expect(response).to eq([1, 3, 5])
+    end
+  end
+
+
+
 end
